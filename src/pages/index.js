@@ -1,29 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Layout from "components/layout";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import DeviceShadow from "components/device-shadow";
-import DeviceView from "components/device-view";
+import DeviceUpdate from "components/device-update";
 
 const IndexPage = () => {
-
-  const [urlContent, setUrlContent] = useState(0)
-
-  useEffect(() => {
-    
-    const timer = setInterval(() => {
-      fetch(process.env.SHADOW_READ_API_URL)
-      .then( res => res.json() )
-      .then( data => {setUrlContent(data)} )
-    }, 3000)
-    return () => clearInterval(timer)
-  }, [])
-
   return (
     <Layout pageName="index">
       <Container className="page-body">
         <Row>
-          <DeviceView shadowJson={urlContent} />
-          <DeviceShadow shadowJson={urlContent} />
+          <DeviceUpdate />
+        </Row>
+        <Row>
+          <DeviceShadow />
         </Row>
       </Container>
     </Layout>

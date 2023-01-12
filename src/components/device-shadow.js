@@ -1,8 +1,41 @@
-import React from "react";
+import React, { useState, useEffect }  from "react";
 import { Col } from "react-bootstrap";
+import { StaticImage } from "gatsby-plugin-image";
 
-const DeviceShadow = ({ shadowJson }) => {
+const DeviceShadow = () => {
+
+  const [shadowJson, setshadowJson] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      fetch(process.env.GET_SHADOW_ENDPOINT)
+      .then( res => res.json() )
+      .then( data => {setshadowJson(data)} )
+      console.log("update fetch")
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [])
+
   if (shadowJson) {
+
+    var active_colour
+    var active_url
+    switch( Number(shadowJson.active_button_config)) {
+      case 1:
+        active_colour = shadowJson.buttons_config.button_1[1];
+        active_url = shadowJson.buttons_config.button_1[0];
+        break;
+      case 2:
+        active_colour = shadowJson.buttons_config.button_2[1];
+        active_url = shadowJson.buttons_config.button_2[0];
+        break;
+      case 3:
+        active_colour = shadowJson.buttons_config.button_3[1];
+        active_url = shadowJson.buttons_config.button_3[0];
+        break;
+      default:
+        break;
+    }
 
     var btn1_class
     var btn2_class
@@ -27,8 +60,20 @@ const DeviceShadow = ({ shadowJson }) => {
         break;
     }
 
+    const background_style = {
+      backgroundColor: "rgb(" + active_colour[0] + ", " + active_colour[1] + ", " + active_colour[2] + ")"
+    }
+
     return (
       <>
+        <Col id="device-view" style={background_style} className="text-center">
+          <div id="device-view-content">
+            <StaticImage src="../assets/images/ExpressLink_2048px.png" />
+            <span>
+              <a href={active_url} target="_blank" rel="noreferrer">{active_url}</a>
+            </span>
+          </div>
+        </Col>
         <Col id="device-shadow">
           <h2>Button Configuration</h2>
           <h3>Button 1</h3>
@@ -140,6 +185,9 @@ const DeviceShadow = ({ shadowJson }) => {
   } else {
     return (
       <>
+        <Col id="device-view">
+          <p>The device shadow is being fetched, please wait...</p>
+        </Col>
         <Col id="device-shadow">
           <h2>Current Shadow</h2>
           <p>The device shadow is being fetched, please wait...</p>
