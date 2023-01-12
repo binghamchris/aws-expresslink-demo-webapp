@@ -1,0 +1,25 @@
+header {
+  width: 100%;
+  color: $white;
+  background-color: $pandas-dustyblue-base;
+  padding-right: 1em;
+  padding-left: 0.2em;
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar-brand {
+    font-family: $font-heading;
+    font-weight: 300;
+    font-size: 2em;
+    color: $pandas-orangeyellow-base;
+    margin-left: 0.5em;
+
+    h1 {
+      margin: 0;
+      font-size: calc(1.375rem + 1.5vw) !important;
+    }
+  }
+}

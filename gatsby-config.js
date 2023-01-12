@@ -3,7 +3,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `AWS IoT ExpressLink Demo`
+    title: `AWS IoT Device Shadow Demo`
   },
   plugins: [
     "gatsby-plugin-sass", 
