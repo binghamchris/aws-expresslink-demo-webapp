@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "components/layout";
 import { Container, Row, Col } from "react-bootstrap";
 import DeviceShadow from "components/device-shadow";
+import DeviceView from "components/device-view";
 
 const IndexPage = () => {
 
@@ -18,13 +19,11 @@ const IndexPage = () => {
       <Container className="page-body">
         <Row>
           <Col>
-            <h1>AWS IoT ExpressLink & Device Shadow Demo App</h1>
+            <h1>AWS IoT Device Shadow Demo</h1>
           </Col>
         </Row>
         <Row>
-          <Col>
-            <p>Test</p>
-          </Col>
+          <DeviceView shadowJson={urlContent} />
           <DeviceShadow shadowJson={urlContent} />
         </Row>
       </Container>

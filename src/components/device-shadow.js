@@ -3,13 +3,36 @@ import { Col } from "react-bootstrap";
 
 const DeviceShadow = ({ shadowJson }) => {
   if (shadowJson) {
+
+    var btn1_class
+    var btn2_class
+    var btn3_class
+    switch( Number(shadowJson.active_button_config)) {
+      case 1:
+        btn1_class = "active-config"
+        btn2_class = ""
+        btn3_class = ""
+        break;
+      case 2:
+        btn1_class = ""
+        btn2_class = "active-config"
+        btn3_class = ""
+        break;
+      case 3:
+        btn1_class = ""
+        btn2_class = ""
+        btn3_class = "active-config"
+        break;
+      default:
+        break;
+    }
+
     return (
       <>
         <Col id="device-shadow">
-          <h2>Current Shadow</h2>
-          <h3>Button Configuration</h3>
-          <h4>Button 1</h4>
-          <table>
+          <h2>Button Configuration</h2>
+          <h3>Button 1</h3>
+          <table className={btn1_class}>
             <tbody>
               <tr>
                 <th>URL</th>
@@ -31,8 +54,8 @@ const DeviceShadow = ({ shadowJson }) => {
               </tr>
             </tbody>
           </table>
-          <h4>Button 2</h4>
-          <table>
+          <h3>Button 2</h3>
+          <table  className={btn2_class}>
             <tbody>
               <tr>
                 <th>URL</th>
@@ -54,8 +77,8 @@ const DeviceShadow = ({ shadowJson }) => {
               </tr>
             </tbody>
           </table>
-          <h4>Button 3</h4>
-          <table>
+          <h3>Button 3</h3>
+          <table className={btn3_class}>
             <tbody>
               <tr>
                 <th>URL</th>
@@ -77,21 +100,19 @@ const DeviceShadow = ({ shadowJson }) => {
               </tr>
             </tbody>
           </table>
-          <h3>Active Button Configuration</h3>
-          <p>Button {shadowJson.active_button_config}</p>
-          <h3>Sensors</h3>
+          <h2>Sensors</h2>
           <table>
             <tbody>
               <tr>
                 <th>Temperature</th>
-                <td>{shadowJson.temperature}</td>
+                <td>{Number(shadowJson.temperature).toFixed(2)} &#176;C</td>
               </tr>
               <tr>
                 <th>Humidity</th>
-                <td>{shadowJson.humidity}</td>
+                <td>{Number(shadowJson.humidity).toFixed(2)}%</td>
               </tr>
               <tr>
-                <th>Light</th>
+                <th>Ambient Light</th>
                 <td>{shadowJson.ambient_light}</td>
               </tr>
             </tbody>

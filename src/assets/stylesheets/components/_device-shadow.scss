@@ -1,0 +1,27 @@
+#device-shadow {
+  .active-config {
+    background-color: $pandas-darkteal-25;
+    color: whitesmoke;
+
+    a {
+      color: $pandas-orangeyellow-base !important;
+    }
+    a:hover {
+      color: whitesmoke !important;
+    }
+  }
+  table {
+    width: 100%;
+
+    th {
+      width: 33%;
+      border-right: 0.1em solid $pandas-bluegrey-base;
+      padding-right: 0.5em;
+      padding-left: 0.5em;
+    }
+
+    td {
+      padding-left: 0.5em;
+    }
+  }
+}

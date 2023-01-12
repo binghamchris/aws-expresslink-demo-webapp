@@ -1,0 +1,19 @@
+#device-view {
+  #device-view-content {
+    margin: 0;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);  
+
+    .gatsby-image-wrapper {
+      margin-bottom: 1.5em;
+    }
+
+    span {
+      background-color: $pandas-bluegrey-base;
+      padding: 0.5em;
+      margin: 1em;
+    }
+  }
+
+}
