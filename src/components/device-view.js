@@ -37,7 +37,7 @@ const DeviceView = ({ shadowJson }) => {
             <div id="device-view-content">
               <StaticImage src="../assets/images/ExpressLink_2048px.png" />
               <span>
-                <a href={active_url}>{active_url}</a>
+                <a href={active_url} target="_blank" rel="noreferrer">{active_url}</a>
               </span>
             </div>
           </Col>

@@ -37,7 +37,7 @@ const DeviceShadow = ({ shadowJson }) => {
               <tr>
                 <th>URL</th>
                 <td>
-                  <a href={shadowJson.buttons_config.button_1[0]}>
+                  <a href={shadowJson.buttons_config.button_1[0]} target="_blank" rel="noreferrer">
                     {shadowJson.buttons_config.button_1[0]}
                   </a>
                 </td>
@@ -60,7 +60,7 @@ const DeviceShadow = ({ shadowJson }) => {
               <tr>
                 <th>URL</th>
                 <td>
-                  <a href={shadowJson.buttons_config.button_2[0]}>
+                  <a href={shadowJson.buttons_config.button_2[0]} target="_blank" rel="noreferrer">
                     {shadowJson.buttons_config.button_2[0]}
                   </a>
                 </td>
@@ -83,7 +83,7 @@ const DeviceShadow = ({ shadowJson }) => {
               <tr>
                 <th>URL</th>
                 <td>
-                  <a href={shadowJson.buttons_config.button_3[0]}>
+                  <a href={shadowJson.buttons_config.button_3[0]} target="_blank" rel="noreferrer">
                     {shadowJson.buttons_config.button_3[0]}
                   </a>
                 </td>
