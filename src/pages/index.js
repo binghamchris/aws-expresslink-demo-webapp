@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react";
+import Layout from "components/layout";
+import { Container, Row, Col } from "react-bootstrap";
+import DeviceShadow from "components/device-shadow";
 
 const IndexPage = () => {
 
@@ -10,22 +13,22 @@ const IndexPage = () => {
     .then( data => {setUrlContent(data)} )
   }, [])
 
-  var content = "Test"
-
-
-  if (urlContent) {
-    content = JSON.stringify(urlContent, null, 2)
-  }
-
   return (
-    <main>
-      <h1>
-        IoT Device Shadow Test
-      </h1>
-      <p>
-        {content}
-      </p>
-    </main>
+    <Layout pageName="index">
+      <Container className="page-body">
+        <Row>
+          <Col>
+            <h1>AWS IoT ExpressLink & Device Shadow Demo App</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <p>Test</p>
+          </Col>
+          <DeviceShadow shadowJson={urlContent} />
+        </Row>
+      </Container>
+    </Layout>
   )
 }
 

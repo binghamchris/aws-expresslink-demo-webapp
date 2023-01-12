@@ -1,0 +1,99 @@
+@import "settings/__settings";
+@import "util/__util";
+@import "components/__components";
+@import "pages/__pages";
+
+
+//Mixins
+@mixin headings {
+  h1, h2, h3,
+  h4, h5, h6 {
+      @content;
+  }
+}
+
+@mixin image-border {
+  padding: 0.25em;
+  background-color: $pandas-bluegrey-base;
+}
+
+//Global page styling
+* {
+  box-sizing: border-box;
+}
+
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .body-content {
+    justify-content: unset;
+  }
+}
+
+main {
+  flex: 1;
+}
+
+body {
+  font-family: $font-default;
+  font-size: 1.2em;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background-color: $pandas-bluegrey-base;
+  margin-bottom: 0.5em;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.link-no-style {
+  color: $white !important;
+}
+
+@include headings {
+  font-family: $font-heading;
+  color: $pandas-orangeyellow-base;
+  margin: 0.5em 0 0.3em 0;
+}
+
+h1 {
+  margin-top: 0.1em;
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+a {
+  text-decoration: none !important;
+  color: $pandas-novablue-base;
+}
+
+a:hover {
+  color: $pandas-darkteal-25 !important;
+}
+
+.page-body {
+  background-color: whitesmoke;
+}
+
+//Fix for headings ending up under the navbar for table of contents links 
+html {
+  scroll-behavior: smooth;
+}
+
+:target:before {
+  content: "";
+  display: block;
+  height: 110px;
+  margin: -110px 0 0;
+}
