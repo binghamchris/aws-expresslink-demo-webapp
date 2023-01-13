@@ -3,6 +3,7 @@ import Layout from "components/layout";
 import { Container } from "react-bootstrap";
 import DeviceShadow from "components/device-shadow";
 import DeviceUpdate from "components/device-update";
+import { useSiteMetadata } from "hooks/use-site-metadata";
 
 const IndexPage = () => {
   return (
@@ -17,4 +18,11 @@ const IndexPage = () => {
 
 export default IndexPage
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => {
+
+  const { title } = useSiteMetadata()
+
+  return (
+    <title>{title}</title>
+  )
+}
