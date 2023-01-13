@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from "react";
-import { Col } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { StaticImage } from "gatsby-plugin-image";
 
 const DeviceShadow = () => {
@@ -65,18 +65,19 @@ const DeviceShadow = () => {
     }
 
     return (
-      <>
-        <Col id="device-view" style={background_style} className="text-center">
-          <div id="device-view-content">
+      <Row id="device-shadow">
+        <h2>Current Shadow</h2>
+        <Col id="device-shadow-view" style={background_style} className="text-center">
+          <div id="device-shadow-view-content">
             <StaticImage src="../assets/images/ExpressLink_2048px.png" />
             <span>
               <a href={active_url} target="_blank" rel="noreferrer">{active_url}</a>
             </span>
           </div>
         </Col>
-        <Col id="device-shadow">
-          <h2>Button Configuration</h2>
-          <h3>Button 1</h3>
+        <Col id="device-shadow-readings">
+          <h3>Button Configuration</h3>
+          <h4>Button 1</h4>
           <table className={btn1_class}>
             <tbody>
               <tr>
@@ -99,7 +100,7 @@ const DeviceShadow = () => {
               </tr>
             </tbody>
           </table>
-          <h3>Button 2</h3>
+          <h4>Button 2</h4>
           <table  className={btn2_class}>
             <tbody>
               <tr>
@@ -122,7 +123,7 @@ const DeviceShadow = () => {
               </tr>
             </tbody>
           </table>
-          <h3>Button 3</h3>
+          <h4>Button 3</h4>
           <table className={btn3_class}>
             <tbody>
               <tr>
@@ -145,7 +146,7 @@ const DeviceShadow = () => {
               </tr>
             </tbody>
           </table>
-          <h2>Sensors</h2>
+          <h3>Sensors</h3>
           <table>
             <tbody>
               <tr>
@@ -162,7 +163,7 @@ const DeviceShadow = () => {
               </tr>
             </tbody>
           </table>
-          <h3>Accelerometers</h3>
+          <h4>Accelerometers</h4>
           <table>
             <tbody>
               <tr>
@@ -180,19 +181,16 @@ const DeviceShadow = () => {
             </tbody>
           </table>
         </Col>
-      </>
+      </Row>
     )
   } else {
     return (
-      <>
-        <Col id="device-view">
-          <p>The device shadow is being fetched, please wait...</p>
-        </Col>
-        <Col id="device-shadow">
+      <Row id="device-shadow">
+        <Col>
           <h2>Current Shadow</h2>
           <p>The device shadow is being fetched, please wait...</p>
         </Col>
-      </>
+      </Row>
     )
   }
 }

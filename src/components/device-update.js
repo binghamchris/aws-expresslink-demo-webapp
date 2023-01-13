@@ -1,5 +1,5 @@
 import React from "react";
-import { Col } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 const DeviceUpdate = () => {  
 
@@ -17,18 +17,18 @@ const DeviceUpdate = () => {
   }
   
   return (
-    <>
-      <Col>
-        <button onClick={(e) => updateShadow(e, 1)}>1</button>
+    <Row id="device-update">
+      <h2>Change Active Button</h2>
+      <Col className="text-center">
+        <button onClick={(e) => updateShadow(e, 1)}>Button 1</button>
       </Col>
-      <Col>
-        <button onClick={(e) => updateShadow(e, 2)}>2</button>
+      <Col className="text-center">
+        <button onClick={(e) => updateShadow(e, 2)}>Button 2</button>
       </Col>
-      <Col>
-        <button onClick={(e) => updateShadow(e, 3)}>3</button>
+      <Col className="text-center">
+        <button onClick={(e) => updateShadow(e, 3)}>Button 3</button>
       </Col>
-        
-    </>
+    </Row>
   )
 }
 

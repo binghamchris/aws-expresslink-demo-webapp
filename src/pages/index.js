@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "components/layout";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import DeviceShadow from "components/device-shadow";
 import DeviceUpdate from "components/device-update";
 
@@ -8,12 +8,8 @@ const IndexPage = () => {
   return (
     <Layout pageName="index">
       <Container className="page-body">
-        <Row>
-          <DeviceUpdate />
-        </Row>
-        <Row>
-          <DeviceShadow />
-        </Row>
+        <DeviceUpdate />
+        <DeviceShadow />
       </Container>
     </Layout>
   )

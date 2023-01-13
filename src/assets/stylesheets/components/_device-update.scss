@@ -1,0 +1,17 @@
+#device-update {
+  margin-bottom: 0.5em;
+  padding-bottom: 0.8em;
+  border-bottom: 0.1em $pandas-bluegrey-base solid;
+
+  button {
+    background-color: $pandas-novablue-base;
+    color: whitesmoke;
+    border: 0;
+    padding: 0.3em 1em 0.3em 1em;
+  }
+
+  button:active{
+    background-color: $pandas-dustyblue-base;
+    color: $pandas-novablue-base;
+  }
+}
