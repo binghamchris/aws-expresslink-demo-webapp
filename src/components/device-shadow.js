@@ -9,7 +9,7 @@ const DeviceShadow = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       console.log("Fetching latest device shadow...")
-      fetch(process.env.GET_SHADOW_ENDPOINT)
+      fetch(process.env.GATSBY_GET_SHADOW_ENDPOINT)
       .then( res => res.json() )
       .then( data => {setshadowJson(data)} )
     }, 3000)

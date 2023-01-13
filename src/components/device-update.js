@@ -13,7 +13,7 @@ const DeviceUpdate = () => {
       body: JSON.stringify(req_body),
     };
     console.log("Sending new desired shadow state...")
-    fetch(process.env.UPDATE_SHADOW_ENDPOINT, opts)
+    fetch(process.env.GATSBY_UPDATE_SHADOW_ENDPOINT, opts)
   }
   
   return (
