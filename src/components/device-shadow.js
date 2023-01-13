@@ -8,10 +8,10 @@ const DeviceShadow = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
+      console.log("Fetching latest device shadow...")
       fetch(process.env.GET_SHADOW_ENDPOINT)
       .then( res => res.json() )
       .then( data => {setshadowJson(data)} )
-      console.log("update fetch")
     }, 3000)
     return () => clearInterval(timer)
   }, [])
@@ -67,6 +67,7 @@ const DeviceShadow = () => {
     return (
       <Row id="device-shadow">
         <h2>Current Shadow</h2>
+        <p>This section shows the latest <code>reported</code> shadow, as sent by the demo badge and recorded in AWS IoT Core:</p>
         <Col id="device-shadow-view" style={background_style} className="text-center">
           <div id="device-shadow-view-content">
             <StaticImage src="../assets/images/ExpressLink_2048px.png" />
